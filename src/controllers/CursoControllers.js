@@ -6,9 +6,9 @@ class CursoController {
       const dados = request.body;
       const resposta = Curso.create(dados);
 
-      return response.status(201).json(resposta);
+      return response.status(201).json({ resposta });
     } catch (error) {
-      response.status(500).json({
+      return response.status(500).json({
         mensagem: `Não foi possível cadastrar curso devido ao erro a seguir:\n ${error}`,
       });
       console.log(error);
